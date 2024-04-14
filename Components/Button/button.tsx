@@ -9,7 +9,7 @@ interface IButtonProps {
 const Button: FC<IButtonProps> = ({ isActive, handleClick }) => {
     return (
         <button
-            onClick={handleClick} // Moved onClick outside of button element
+            onClick={handleClick}
             className={`${styles.button} ${isActive ? styles.active : ""}`}
         >
             Button
