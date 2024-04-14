@@ -1,18 +1,27 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./Button.module.css";
 
 interface IButtonProps {
-    isActive: boolean; // Use lowercase for boolean
+    isActive: boolean;
     handleClick: () => void;
 }
 
 const Button: FC<IButtonProps> = ({ isActive, handleClick }) => {
+
+    const [isActiveButton, setIsActiveButton] = useState(isActive);
+
+    const handleClickButton = () => {
+        handleClick();
+
+        setIsActiveButton(!isActiveButton);
+    };
+
     return (
         <button
-            onClick={handleClick} // Moved onClick outside of button element
-            className={`${styles.button} ${isActive ? styles.active : ""}`}
+            onClick={handleClickButton}
+            className={`${styles.button} ${isActiveButton ? styles.active : ""}`}
         >
-            Button
+            {isActiveButton ? "Button Active" : "Button"}
         </button>
     );
 };
