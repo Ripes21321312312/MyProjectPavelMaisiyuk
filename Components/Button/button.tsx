@@ -2,7 +2,7 @@ import { FC } from "react";
 import styles from "./Button.module.css";
 
 interface IButtonProps {
-    isActive: boolean; // Use lowercase for boolean
+    isActive: boolean; 
     handleClick: () => void;
 }
 
